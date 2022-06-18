@@ -1,12 +1,17 @@
-import { Text, Flex, Image } from '@chakra-ui/react';
+import { Text, Flex } from '@chakra-ui/react';
 import HeadingText from '../styled/HeadingText';
 import SectionContainer from '../styled/SectionContainer';
 
-const Moto = () => {
+const Moto = ({ motoRef }) => {
 	return (
-		<SectionContainer>
+		<SectionContainer ref={motoRef}>
 			<HeadingText>What's onboard</HeadingText>
-			<Flex direction='column' mt='2rem' align={'center'}>
+			<Flex
+				w={{ base: '100%', md: '85%', lg: '70%' }}
+				direction='column'
+				mt='2rem'
+				align={'center'}
+				textAlign={'center'}>
 				<Para>
 					The Future of Work is developing in front of our eyes. With
 					the growth of DeFi and NFT, Web3 has unlocks new potentials
@@ -27,7 +32,6 @@ const Moto = () => {
 					color='brand.accent.900'>
 					It's time to Get Onboard!
 				</Text>
-				<Image src='/assets/logo-full.png' w='60%' />
 			</Flex>
 		</SectionContainer>
 	);

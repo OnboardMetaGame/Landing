@@ -1,14 +1,15 @@
 import { Flex } from '@chakra-ui/react';
 
-const SectionContainer = ({ children }) => (
+const SectionContainer = ({ ref, children }) => (
 	<Flex
 		direction={'column'}
 		w='80%'
-		minH='100vh'
+		minH={{ base: '80vh', md: '100vh' }}
 		mx='auto'
-		my='5rem'
+		my={{ base: '1rem', md: '2rem' }}
 		justify={'center'}
-		align='center'>
+		align='center'
+		ref={ref}>
 		{children}
 	</Flex>
 );
