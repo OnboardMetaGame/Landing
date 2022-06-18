@@ -1,37 +1,56 @@
 import {
 	Flex,
 	Image,
-	HStack,
 	Button,
 	IconButton,
 	Spacer,
 	Text,
+	Drawer,
+	DrawerOverlay,
+	DrawerContent,
+	DrawerCloseButton,
+	DrawerBody,
+	useDisclosure,
 } from '@chakra-ui/react';
 import { NavLink } from '../NavLinks';
 import { ExternalLink } from '../Links';
-import { SiDiscord, SiTwitter } from 'react-icons/si';
+import { SiDiscord, SiTwitter, SiMedium } from 'react-icons/si';
+import { VscMenu } from 'react-icons/vsc';
 
-const Navbar = () => {
+const Navbar = ({ motoRef, mainRef, teamRef, roadmapRef }) => {
+	const handleScroll = (ref) => {
+		window.scrollTo({
+			top: ref,
+			left: 0,
+			behavior: 'smooth',
+		});
+	};
+
 	const navLinks = [
 		{
 			name: 'Moto',
-			path: '/moto',
+			path: '/#moto',
+			ref: motoRef,
 		},
 		{
 			name: 'Team',
-			path: '/team',
+			path: '/#team',
+			ref: teamRef,
 		},
 		{
 			name: 'Roadmap',
-			path: '/roadmap',
+			path: '/#roadmap',
+			ref: roadmapRef,
 		},
 	];
+
+	const { isOpen, onOpen, onClose } = useDisclosure();
 
 	return (
 		<Flex
 			zIndex={'100'}
 			w='80%'
-			minW='40rem'
+			minW='20rem'
 			h='5rem'
 			px='2rem'
 			py='1.2rem'
@@ -43,10 +62,23 @@ const Navbar = () => {
 			borderRadius='0 0 1rem 1rem'
 			position='fixed'
 			color='brand.light'>
-			<Image src={'/assets/logo.png'} h='full' />
-			<HStack justify='space-around' fontSize='sm' ml='2rem'>
+			<Image
+				src={'/assets/logo.png'}
+				h='full'
+				onClick={() => handleScroll(mainRef.current)}
+			/>
+			<Flex
+				display={{ base: 'none', md: 'flex' }}
+				direction={'row'}
+				justify='space-around'
+				fontSize='sm'
+				ml='2rem'>
 				{navLinks.map((link, index) => (
-					<NavLink key={index} to={link.path} role='group'>
+					<NavLink
+						key={index}
+						to={link.path}
+						role='group'
+						onClick={() => handleScroll(link.ref.current)}>
 						<Text
 							transition='all 0.2s ease-in-out'
 							_groupHover={{
@@ -57,7 +89,7 @@ const Navbar = () => {
 						</Text>
 					</NavLink>
 				))}
-			</HStack>
+			</Flex>
 			<Spacer />
 			<Flex align='center' justify={'center'} mr='1rem'>
 				<ExternalLink href='https://twitter.com/getonboard_gg'>
@@ -65,26 +97,88 @@ const Navbar = () => {
 						icon={<SiTwitter />}
 						variant='ghost'
 						color='brand.accent.100'
-						_hover={{ bg: 'brand.accent.900' }}
+						_hover={{ bg: 'none' }}
 					/>
 				</ExternalLink>
-
-				<ExternalLink href='https://discord.gg/QbXnYGMG'>
+				<ExternalLink href='https://discord.gg/u3qaCmmVwf'>
 					<IconButton
 						icon={<SiDiscord />}
 						variant='ghost'
 						color='brand.accent.100'
-						_hover={{ bg: 'brand.accent.900' }}
+						_hover={{ bg: 'none' }}
+					/>
+				</ExternalLink>
+				<ExternalLink href='https://medium.com/@getonboard_gg/about'>
+					<IconButton
+						icon={<SiMedium />}
+						variant='ghost'
+						color='brand.accent.100'
+						_hover={{ bg: 'none' }}
 					/>
 				</ExternalLink>
 			</Flex>
-			<Button
-				color={'brand.dark.100'}
-				bg='brand.accent.100'
-				transition={'all 0.2s ease-in-out'}
-				_hover={{ filter: 'brightness(105%)' }}>
-				Onboard
-			</Button>
+			<IconButton
+				display={{ base: 'block', md: 'none' }}
+				align='center'
+				icon={<VscMenu size={20} />}
+				variant={'ghost'}
+				onClick={onOpen}
+				_hover={{ bg: 'none' }}
+				_focus={{ outline: 'none', bg: 'none' }}
+				_active={{ outline: 'none', bg: 'none' }}
+			/>
+			<Drawer onClose={onClose} isOpen={isOpen} size={'sm'}>
+				<DrawerOverlay />
+				<DrawerContent bg='brand.dark.100' color='brand.light'>
+					<DrawerCloseButton />
+					<DrawerBody>
+						<Flex
+							direction='column'
+							w='full'
+							justify='center'
+							align='center'
+							textAlign={'center'}>
+							<Image
+								src='/assets/logo-full.png'
+								width='80%'
+								my='3rem'
+								minW='10ch'
+							/>
+							{navLinks.map((link, index) => (
+								<NavLink
+									key={index}
+									to={link.path}
+									role='group'>
+									<Button
+										w='75%'
+										variant='ghost'
+										transition='all 0.2s ease-in-out'
+										fontSize='xl'
+										textTransform={'uppercase'}
+										_groupHover={{
+											color: 'brand.accent.100',
+											fontWeight: '600',
+											bg: 'whiteAlpha.100',
+										}}>
+										{link.name}
+									</Button>
+								</NavLink>
+							))}
+						</Flex>
+					</DrawerBody>
+				</DrawerContent>
+			</Drawer>
+			<ExternalLink
+				display={{ base: 'none', md: 'block' }}
+				href={'https://app.getonboard.gg'}>
+				<Button
+					color={'brand.dark.100'}
+					bg='brand.accent.100'
+					transition={'all 0.2s ease-in-out'}
+					_hover={{ filter: 'brightness(105%)' }}>
+					Onboard
+				</Button>
+			</ExternalLink>
 		</Flex>
 	);
 };
