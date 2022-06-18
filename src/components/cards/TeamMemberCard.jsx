@@ -33,15 +33,17 @@ const TeamMemberCard = ({ name, role, pfp, linkedin, twitter }) => {
 						as={'span'}
 						color={'brand.light'}
 						fontSize={'2xl'}
-						fontWeight={'700'}
+						fontWeight={'600'}
 						textTransform={'capitalize'}>
 						{name}
 					</Text>
 					<Text
 						as={'span'}
 						color={'brand.light'}
-						fontSize='md'
-						fontWeight={'400'}
+						fontSize='0.8rem'
+						fontWeight={'600'}
+						textTransform={'uppercase'}
+						opacity={'0.6'}
 						m={0}>
 						{role}
 					</Text>
