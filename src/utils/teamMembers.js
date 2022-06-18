@@ -7,7 +7,7 @@ export const teamMeambers = [
 		twitter: 'https://twitter.com/vandynathan',
 	},
 	{
-		name: 'Daniel Okownko',
+		name: 'Daniel Okonkwo',
 		role: 'CTO',
 		pfp: '/assets/pfps/daniel.png',
 		linkedin:
@@ -29,7 +29,7 @@ export const teamMeambers = [
 	},
 	{
 		name: 'Niels Abdellatif',
-		role: 'Head of Partnerships',
+		role: 'COO',
 		pfp: '/assets/pfps/niels.png',
 		linkedin:
 			'https://www.linkedin.com/in/niels-philip-abdellatif-82287b155/',
