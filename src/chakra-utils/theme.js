@@ -46,7 +46,7 @@ const styles = {
 			scrollBehaivor: 'smooth',
 		},
 		body: {
-			fontFamily: '"Raleway", sans-serif',
+			fontFamily: '"Poppins", sans-serif',
 			background: 'brand.light',
 			color: 'brand.dark.100',
 			tansition: 'all 0.2s ease-in-out',
