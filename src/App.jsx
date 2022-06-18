@@ -1,12 +1,16 @@
 import React from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
-import Landing from './components/Landing';
+
+import { Routes, Route } from 'react-router-dom';
 import { theme } from './chakra-utils/theme';
+import Landing from './components/Landing';
 
 function App() {
 	return (
 		<ChakraProvider theme={theme}>
-			<Landing />
+			<Routes>
+				<Route exact path='/' element={<Landing />} />
+			</Routes>
 		</ChakraProvider>
 	);
 }
