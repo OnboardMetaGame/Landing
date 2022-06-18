@@ -1,5 +1,5 @@
-import { Flex, Text, HStack, Button, Image } from '@chakra-ui/react';
-import { SiTwitter, SiDiscord } from 'react-icons/si';
+import { Flex, Text, Button, Image } from '@chakra-ui/react';
+import { SiTwitter, SiDiscord, SiMedium } from 'react-icons/si';
 import { ExternalLink } from '../Links';
 
 const Footer = () => {
@@ -14,33 +14,49 @@ const Footer = () => {
 			<Text
 				textTransform='uppercase'
 				fontSize={'2rem'}
-				fontWeight={'700'}>
+				fontWeight={'700'}
+				textAlign='center'>
 				Join Our Community
 			</Text>
-			<HStack my='1rem'>
+			<Flex
+				w='75%'
+				direction={{ base: 'column', md: 'row' }}
+				align={'center'}
+				justify={'center'}
+				my='1rem'>
 				<SocialButton
 					social='Discord'
-					href='https://discord.gg/QbXnYGMG'
+					href='https://discord.gg/u3qaCmmVwf'
 				/>
 				<SocialButton
 					social='Twitter'
 					href='https://twitter.com/getonboard_gg'
 				/>
-			</HStack>
-			<Image src='/assets/logo-full.png' width='40%' minW='10ch' />
+				<SocialButton
+					social='Medium'
+					href='https://medium.com/@getonboard_gg/about'
+				/>
+			</Flex>
+			<Image
+				src='/assets/logo-full.png'
+				width={{ base: '60%', md: '40%' }}
+				minW='10ch'
+			/>
 		</Flex>
 	);
 };
 
 const SocialButton = ({ social, href }) => (
 	<Button
+		w={{ base: '100%', md: 'auto' }}
 		size={'2xl'}
 		py='0.5rem'
 		px='1rem'
 		bg='brand.accent.100'
 		color={'brand.dark.100'}
 		fontWeight='700'
-		mx='0.5rem'
+		mx={{ base: 0, md: '0.5rem' }}
+		my={{ base: '0.25rem', md: 0 }}
 		role={'group'}
 		_hover={{
 			filter: 'brightness(105%)',
@@ -52,7 +68,9 @@ const SocialButton = ({ social, href }) => (
 				textDecoration: 'none',
 			}}>
 			<Flex align='center'>
-				{social === 'Discord' ? <SiDiscord /> : <SiTwitter />}
+				{social === 'Discord' && <SiDiscord />}
+				{social === 'Twitter' && <SiTwitter />}
+				{social === 'Medium' && <SiMedium />}
 				<Text
 					as='span'
 					ml='0.5rem'
