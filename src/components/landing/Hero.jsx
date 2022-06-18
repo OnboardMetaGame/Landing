@@ -1,60 +1,50 @@
-import { Box, Image, Button } from '@chakra-ui/react';
+import { Image, Button, Flex } from '@chakra-ui/react';
+import { ExternalLink } from '../Links';
 
-const Hero = () => {
+const Hero = ({ mainRef }) => {
 	return (
-		<Box position={'relative'}>
-			<Image src='/assets/sky1.png' h='90vh' />
-			<Button
-				size={'3xl'}
-				bg='brand.accent.100'
-				transition={'all 0.2s ease-in-out'}
-				_hover={{ filter: 'brightness(105%)' }}
-				fontWeight={'700'}
-				py='0.5rem'
-				px='2rem'
-				fontSize={'1.8rem'}
-				border={'3px ridge'}
-				borderColor={'brand.accent.900'}
-				mt='-2rem'>
-				Get Onboard
-			</Button>
-			<Image
-				src='/assets/island.png'
-				position='absolute'
-				w='15rem'
-				right='5rem'
-				bottom='50%'
-				opacity={'0.7'}
-			/>
-			<Image
-				src='/assets/show-ship.png'
-				position='absolute'
-				w='35rem'
-				bottom='4rem'
-				left='4rem'
-			/>
-			<Image
-				src='/assets/cloud1.png'
-				position='absolute'
-				w='10rem'
-				right='3rem'
-				bottom='55%'
-			/>
-			<Image
-				src='/assets/cloud2.png'
-				position='absolute'
-				w='10rem'
-				right='13rem'
-				bottom='50%'
-			/>
-			<Image
-				src='/assets/logo-full.png'
-				position='absolute'
-				w='30rem'
-				right='5rem'
-				bottom='8rem'
-			/>
-		</Box>
+		<>
+			<Flex
+				direction={'column'}
+				bgImage={"url('/assets/landing-bg.png')"}
+				bgRepeat='no-repeat'
+				bgSize={'cover'}
+				bgPosition={'center'}
+				h={{ base: '53vh', md: '70vh' }}
+				justify={'end'}
+				align='center'
+				ref={mainRef}>
+				<ExternalLink
+					href='https://app.getonboard.gg'
+					_hover={{ textDecoration: 'none' }}>
+					<Button
+						bg='brand.accent.100'
+						transition={'all 0.2s ease-in-out'}
+						_hover={{ filter: 'brightness(105%)' }}
+						fontWeight={'600'}
+						fontSize={'1.2rem'}
+						px='1rem'
+						py='0.5rem'
+						border={'2px ridge'}
+						borderColor={'brand.accent.900'}
+						mb='-1.5rem'>
+						Get Onboard
+					</Button>
+				</ExternalLink>
+			</Flex>
+			<Flex
+				w={{ base: '80%', md: '60%', lg: '75%' }}
+				m='auto'
+				mt={{ base: '8rem', md: '2rem' }}
+				maxW='50ch'
+				justify='center'
+				// bg='blackAlpha.800'
+				// borderRadius={'xl'}
+				// boxShadow={'lg'}>
+			>
+				<Image src='/assets/logo-full.png' w='full' />
+			</Flex>
+		</>
 	);
 };
 
