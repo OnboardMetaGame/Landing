@@ -3,15 +3,16 @@ import { Text } from '@chakra-ui/react';
 const HeadingText = ({ children }) => (
 	<Text
 		as='span'
-		fontSize={'2.5rem'}
+		fontSize={'2rem'}
 		fontWeight={'800'}
 		textTransform={'uppercase'}
+		textAlign={'center'}
 		_after={{
 			content: '""',
 			display: 'block',
 			width: '10ch',
-			height: '15px',
-			border: '5px solid',
+			height: '9px',
+			border: '3px solid',
 			borderColor: 'brand.dark.200',
 			backgroundColor: 'brand.accent.100',
 			margin: 'auto',
