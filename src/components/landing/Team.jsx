@@ -4,10 +4,10 @@ import { teamMeambers } from '../../utils/teamMembers';
 import HeadingText from '../styled/HeadingText';
 import SectionContainer from '../styled/SectionContainer';
 
-const Team = ({ teamRef }) => {
+const Team = () => {
 	return (
-		<SectionContainer ref={teamRef}>
-			<HeadingText>the team</HeadingText>
+		<SectionContainer>
+			<HeadingText ident={'team'}>the team</HeadingText>
 			<Flex
 				flexWrap='wrap'
 				align={'center'}

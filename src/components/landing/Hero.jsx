@@ -5,6 +5,8 @@ const Hero = ({ mainRef }) => {
 	return (
 		<>
 			<Flex
+				id='hero'
+				ref={mainRef}
 				direction={'column'}
 				bgImage={"url('/assets/landing-bg.png')"}
 				bgRepeat='no-repeat'
@@ -12,8 +14,7 @@ const Hero = ({ mainRef }) => {
 				bgPosition={'center'}
 				h={{ base: '53vh', md: '70vh' }}
 				justify={'end'}
-				align='center'
-				ref={mainRef}>
+				align='center'>
 				<ExternalLink
 					href='https://app.getonboard.gg'
 					_hover={{ textDecoration: 'none' }}>

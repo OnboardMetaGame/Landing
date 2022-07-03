@@ -17,30 +17,22 @@ import { ExternalLink } from '../Links';
 import { SiDiscord, SiTwitter, SiMedium } from 'react-icons/si';
 import { VscMenu } from 'react-icons/vsc';
 
-const Navbar = ({ motoRef, mainRef, teamRef, roadmapRef }) => {
-	const handleScroll = (ref) => {
-		window.scrollTo({
-			top: ref,
-			left: 0,
-			behavior: 'smooth',
-		});
-	};
-
+const Navbar = () => {
 	const navLinks = [
 		{
 			name: 'Moto',
 			path: '/#moto',
-			ref: motoRef,
+			id: 'moto',
 		},
 		{
 			name: 'Team',
 			path: '/#team',
-			ref: teamRef,
+			id: 'team',
 		},
 		{
 			name: 'Roadmap',
 			path: '/#roadmap',
-			ref: roadmapRef,
+			id: 'roadmap',
 		},
 	];
 
@@ -63,9 +55,15 @@ const Navbar = ({ motoRef, mainRef, teamRef, roadmapRef }) => {
 			position='fixed'
 			color='brand.light'>
 			<Image
+				cursor={'pointer'}
 				src={'/assets/logo.png'}
 				h='full'
-				onClick={() => handleScroll(mainRef.current)}
+				onClick={() =>
+					document.getElementById('hero').scrollIntoView({
+						block: 'center',
+						behavior: 'smooth',
+					})
+				}
 			/>
 			<Flex
 				display={{ base: 'none', md: 'flex' }}
@@ -78,7 +76,12 @@ const Navbar = ({ motoRef, mainRef, teamRef, roadmapRef }) => {
 						key={index}
 						to={link.path}
 						role='group'
-						onClick={() => handleScroll(link.ref.current)}>
+						onClick={() =>
+							document.getElementById(link.id).scrollIntoView({
+								block: 'center',
+								behavior: 'smooth',
+							})
+						}>
 						<Text
 							transition='all 0.2s ease-in-out'
 							_groupHover={{
@@ -153,6 +156,15 @@ const Navbar = ({ motoRef, mainRef, teamRef, roadmapRef }) => {
 										w='75%'
 										variant='ghost'
 										transition='all 0.2s ease-in-out'
+										onClick={() => {
+											document
+												.getElementById(link.id)
+												.scrollIntoView({
+													block: 'center',
+													behavior: 'smooth',
+												});
+											onClose();
+										}}
 										fontSize='xl'
 										textTransform={'uppercase'}
 										_groupHover={{

@@ -33,7 +33,7 @@ const Roadmap = () => {
 
 	return (
 		<SectionContainer>
-			<HeadingText>roadmap</HeadingText>
+			<HeadingText ident={'roadmap'}>roadmap</HeadingText>
 			<Flex
 				direction={{ base: 'column-reverse', md: 'row' }}
 				align='center'

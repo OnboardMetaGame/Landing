@@ -1,7 +1,8 @@
 import { Text } from '@chakra-ui/react';
 
-const HeadingText = ({ children }) => (
+const HeadingText = ({ ident, children }) => (
 	<Text
+		id={ident}
 		as='span'
 		fontSize={'2rem'}
 		fontWeight={'800'}
