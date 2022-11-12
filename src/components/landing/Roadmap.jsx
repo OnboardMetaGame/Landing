@@ -6,11 +6,11 @@ import HeadingText from '../styled/HeadingText';
 const Roadmap = () => {
 	const stages = [
 		{
-			status: 'ip',
+			status: 'done',
 			content: 'Community Building and Deploying the Voyager Academy',
 		},
 		{
-			status: 'todo',
+			status: 'ip',
 			content: 'Making DAO Learning Paths and Boards',
 		},
 		{
@@ -64,9 +64,14 @@ const Roadmap = () => {
 						textTransform='uppercase'>
 						Phase 1
 					</Text>
-					<Text>
-						Onboarding Users and DAOs, and Introducing Onboard
-					</Text>
+					<Flex direction={'column'} gap='0.5rem'>
+						<Text fontSize={'sm'}>- Test launch Onboard</Text>
+						<Text fontSize={'sm'}>- Launch Onboard Academy</Text>
+						<Text fontSize={'sm'}>- Build DAO hubs</Text>
+						<Text fontSize={'sm'}>
+							- Launch contributor rewards protocol
+						</Text>
+					</Flex>
 				</Flex>
 			</Flex>
 		</SectionContainer>

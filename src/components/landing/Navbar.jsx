@@ -20,7 +20,7 @@ import { VscMenu } from 'react-icons/vsc';
 const Navbar = () => {
 	const navLinks = [
 		{
-			name: 'Moto',
+			name: 'About',
 			path: '/#moto',
 			id: 'moto',
 		},
