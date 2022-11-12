@@ -3,8 +3,9 @@ export const teamMeambers = [
 		name: 'Niels Abdellatif',
 		role: 'CEO & COO',
 		pfp: '/assets/pfps/niels.png',
-		linkedin: 'https://www.linkedin.com/in/nathan-vandy-0804a1b1/',
-		twitter: 'https://twitter.com/vandynathan',
+		linkedin:
+			'https://www.linkedin.com/in/niels-philip-abdellatif-82287b155/',
+		twitter: 'https://twitter.com/blockzealous',
 	},
 	{
 		name: 'Daniel Okonkwo',
@@ -24,6 +25,6 @@ export const teamMeambers = [
 		role: 'Lead Developer',
 		pfp: '/assets/pfps/pushkar.jpeg',
 		linkedin: 'https://www.linkedin.com/in/pushkar-borkar',
-		twitter: 'https://twitter.com/PushkarBorkar',
+		twitter: 'https://twitter.com/0xPushkr',
 	},
 ];

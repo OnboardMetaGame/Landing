@@ -3,6 +3,7 @@ import Navbar from '../components/landing/Navbar';
 import Hero from '../components/landing/Hero';
 import Moto from '../components/landing/Moto';
 import Team from '../components/landing/Team';
+import Advisors from '../components/landing/Advisors';
 import Footer from '../components/landing/Footer';
 import Trusted from './landing/Trusted';
 // import { useRef } from 'react';
@@ -20,6 +21,7 @@ const Landing = () => {
 			<Trusted />
 			<Moto />
 			<Team />
+			<Advisors />
 			<Roadmap />
 			<Footer />
 		</Box>
